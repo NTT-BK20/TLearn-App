@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from 'react-bootstrap';
+import './App.scss';
+import Home from './route/Home'
+import Header from './route/Header'
+import TableUsers from './route/TableUsers';
+import Login from './route/Login'
+import { Routes, Route} from "react-router-dom"
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello world!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className='app-container'>
+      <Header />
+      <Container>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/khoahoc" element={<TableUsers />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Container>
     </div>
+    <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+      />
+    </>
   );
 }
 
